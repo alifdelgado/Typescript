@@ -5,25 +5,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function editable(esEditable) {
-    return function (target, nombrePropiedad, descriptor) {
-        if (!esEditable) {
-            console.warn('No me haran cambiar de opinion');
-        }
-        descriptor.writable = esEditable;
-    };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+function parametro(target, metodo, index) {
+    console.log(target, metodo, index);
 }
-class Villano112 {
-    constructor(nombre) { }
-    plan() {
-        console.log("Es dominar el mundo");
+class Villano114 {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+    imprimir(plan, mensaje) {
+        if (plan) {
+            console.log("El plan es: " + mensaje);
+        }
+        else {
+            console.log(mensaje);
+        }
     }
 }
 __decorate([
-    editable(false)
-], Villano112.prototype, "plan", null);
-let lex112 = new Villano112("Lex Luthor");
-lex112.plan = function () {
-    console.log("Es cortar flores");
-};
-lex112.plan();
+    __param(1, parametro)
+], Villano114.prototype, "imprimir", null);
+let lex114 = new Villano114("Lex Luthor");
